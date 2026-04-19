@@ -25,7 +25,8 @@ def _periods_per_year(index: pd.Index) -> float:
     if elapsed_days <= 0:
         return 252.0
 
-    return len(index) / (elapsed_days / 365.25)
+    interval_count = max(len(index) - 1, 1)
+    return interval_count / (elapsed_days / 365.25)
 
 
 def summarize_returns(

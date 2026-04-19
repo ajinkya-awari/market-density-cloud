@@ -20,6 +20,7 @@ Interactive PCA dashboard for a mixed basket of stocks, crypto, and forex symbol
 |   |-- data.py
 |   `-- signals.py
 |-- output
+|   |-- backtest_signals.csv
 |   |-- backtest_returns.csv
 |   |-- backtest_summary.csv
 |   |-- dashboard.html
@@ -102,6 +103,7 @@ python -m market_density --skip-preview
 - `output/features.csv`: feature table with asset metadata
 - `output/pca_clusters.csv`: PCA coordinates, cluster labels, and hover metrics
 - `output/signals.csv`: current snapshot signals and position weights
+- `output/backtest_signals.csv`: the signal book used for the out-of-sample backtest
 - `output/backtest_returns.csv`: strategy, benchmark, equity curve, and drawdown series
 - `output/backtest_summary.csv`: train/test dates and backtest performance metrics
 - `output/dashboard.html`: interactive Plotly dashboard

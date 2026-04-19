@@ -161,6 +161,7 @@ def main() -> None:
     features_path = output_dir / "features.csv"
     points_path = output_dir / "pca_clusters.csv"
     signals_path = output_dir / "signals.csv"
+    backtest_signals_path = output_dir / "backtest_signals.csv"
     backtest_returns_path = output_dir / "backtest_returns.csv"
     backtest_summary_path = output_dir / "backtest_summary.csv"
     dashboard_path = output_dir / "dashboard.html"
@@ -194,7 +195,7 @@ def main() -> None:
     except ValueError as exc:
         backtest_warning = str(exc)
     else:
-        backtest_result.signals.to_csv(backtest_summary_path.parent / "backtest_signals.csv", index_label="Ticker")
+        backtest_result.signals.to_csv(backtest_signals_path, index_label="Ticker")
         backtest_result.returns.to_csv(backtest_returns_path, index_label="Date")
         backtest_result.summary.to_csv(backtest_summary_path, index=False)
 
@@ -212,6 +213,7 @@ def main() -> None:
     elif dashboard_artifacts.preview_warning is not None:
         print(dashboard_artifacts.preview_warning)
     if backtest_result is not None:
+        print(f"Saved backtest signals to {backtest_signals_path.resolve()}")
         print(f"Saved backtest returns to {backtest_returns_path.resolve()}")
         print(f"Saved backtest summary to {backtest_summary_path.resolve()}")
         print(

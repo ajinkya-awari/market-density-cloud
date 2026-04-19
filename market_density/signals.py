@@ -42,7 +42,7 @@ def _inverse_volatility_weights(frame: pd.DataFrame) -> pd.Series:
     if inverse.notna().sum() == 0:
         return pd.Series(1.0, index=frame.index, dtype=float)
 
-    return inverse.fillna(inverse[ inverse.notna() ].mean())
+    return inverse.fillna(inverse[inverse.notna()].mean())
 
 
 def build_cluster_signals(
